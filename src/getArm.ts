@@ -17,20 +17,27 @@ const isLastUnitType = (
   currentIndex: number
 ) => availableTroopTypesAmount - 1 === currentIndex;
 
+const getUniqueUnitTypes = (availableTroopTypes: Array<string>) => [
+  ...new Set(availableTroopTypes),
+];
+
 export function getArm(
   troopSize: number,
   availableTroopTypes: Array<string>
 ): Troop {
-  const availableTroopTypesAmount = availableTroopTypes.length;
+  const uniqueAvailableTroopTypes = getUniqueUnitTypes(availableTroopTypes);
+  const availableTroopTypesAmount = uniqueAvailableTroopTypes.length;
 
   validateTroop(troopSize);
-  validateAvailableUnitTypes(availableTroopTypes, troopSize);
+  validateAvailableUnitTypes(uniqueAvailableTroopTypes, troopSize);
 
+  if (availableTroopTypesAmount !== availableTroopTypes.length) {
+    console.log("The duplicated unit types was removed");
   }
 
   // remove the min amount of units to have at least one unit per type
   let remainingTroopsUnit = troopSize - availableTroopTypesAmount;
-  return availableTroopTypes.reduce((troop: Troop, unitType, index) => {
+  return uniqueAvailableTroopTypes.reduce((troop: Troop, unitType, index) => {
     // if it's the last one
     if (isLastUnitType(availableTroopTypesAmount, index)) {
       troop[unitType] = 1 + remainingTroopsUnit;
