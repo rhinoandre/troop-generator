@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
-    "run:once": "ts-node src/index.ts"
+    "run:once": "ts-node src/index.ts",
+    "test": "jest",
+    "test:dev": "jest --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
