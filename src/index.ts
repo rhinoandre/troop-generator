@@ -1,9 +1,16 @@
+export interface Troop {
+  [key: string]: number;
+}
+
 function getTroopPercentage(troopSize: number) {
   const percentage = Math.random() * 85 + 1;
   return Math.round((troopSize * percentage) / 100);
 }
 
-function getArm(troopSize: number, availableTroopTypes: Array<string>) {
+export function getArm(
+  troopSize: number,
+  availableTroopTypes: Array<string>
+): Troop {
   if (troopSize <= 0) {
     throw new Error(`Can't create arm with no man/woman`);
   }
