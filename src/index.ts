@@ -1,5 +1,5 @@
 function getTroopPercentage(troopSize: number) {
-  const percentage = Math.random() * 100 + 1;
+  const percentage = Math.random() * 85 + 1;
   return Math.floor((troopSize * percentage) / 100);
 }
 
