@@ -1,3 +1,8 @@
+import {
+  validateAvailableUnitTypes,
+  validateTroop,
+} from "./helpers/validations";
+
 export interface Troop {
   [key: string]: number;
 }
@@ -16,15 +21,11 @@ export function getArm(
   troopSize: number,
   availableTroopTypes: Array<string>
 ): Troop {
-  if (troopSize <= 0) {
-    throw new Error(`Can't create arm with no man/woman`);
-  }
-
   const availableTroopTypesAmount = availableTroopTypes.length;
-  if (troopSize < availableTroopTypesAmount) {
-    throw new Error(
-      `Need at least ${availableTroopTypesAmount} people to create an arm`
-    );
+
+  validateTroop(troopSize);
+  validateAvailableUnitTypes(availableTroopTypes, troopSize);
+
   }
 
   // remove the min amount of units to have at least one unit per type
