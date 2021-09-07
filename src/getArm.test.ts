@@ -14,7 +14,7 @@ describe("get arm", () => {
     });
 
     it("each available unit is composed by at least one unit", () => {
-      expect(arm.spearmen).toBeGreaterThanOrEqual(1);
+      expect(arm.spearmen).not.toBeGreaterThanOrEqual(1);
       expect(arm.swordsmen).toBeGreaterThanOrEqual(1);
       expect(arm.archer).toBeGreaterThanOrEqual(1);
     });
