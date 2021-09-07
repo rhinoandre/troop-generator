@@ -51,6 +51,3 @@ export function getArm(
     return troop;
   }, {});
 }
-
-console.clear();
-console.log(getArm(100, ["spearmen", "swordsmen", "archers"]));
