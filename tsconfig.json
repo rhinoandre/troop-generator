@@ -3,13 +3,14 @@
     "target": "ES2021",
     "module": "CommonJS",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
   "exclude":[
-    "./node_modules"
+    "./node_modules",
+    "./src/*.test.ts"
   ]
 }

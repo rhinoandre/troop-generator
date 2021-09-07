@@ -2,12 +2,14 @@
   "name": "troop-generator",
   "version": "1.0.0",
   "main": "index.js",
+  "types": "./index.d.ts",
   "repository": "git@github.com:rhinoandre/troop-generator.git",
-  "author": "Rhino <andre.bazoli@yara.com>",
+  "author": "Rhino <rhinoandre@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
     "run:once": "ts-node src/index.ts",
+    "build": "rimraf ./dist && tsc --declaration && cp README.md dist/README.md && cp package.json dist/package.json",
     "test": "jest",
     "test:dev": "jest --watch"
   },
@@ -16,9 +18,10 @@
     "@babel/preset-env": "^7.15.4",
     "@babel/preset-typescript": "^7.15.0",
     "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.10",
+    "@types/node": "^16.7.11",
     "jest": "^27.1.0",
     "nodemon": "^2.0.12",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2"
   }
